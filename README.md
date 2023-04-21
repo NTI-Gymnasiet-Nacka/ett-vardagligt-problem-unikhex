@@ -23,4 +23,4 @@ At this point in time i havn't decided that if its going to be a website or an e
 Zion Awino (unikhex )
 
 - [Email] (awinozion85@gmail.com)
-- [Project_link] (<https://github.com/unikhex/Slut-projekt>)
+- [Project_link] (<https://github.com/NTI-Gymnasiet-Nacka/ett-vardagligt-problem-unikhex>)
