@@ -8,6 +8,15 @@ Our thought process was to create an app or a website that sends notification to
 ## *How am i going to fix it*
 I am personlising it to make it so that it only sends notifications for breakfast and supper. I also wanted mine to only be able to send recipes for only ingredients that i currernly have.
 
+## *What it has to have*
+Must be able to send notifications to an email.
+Choose or input ingridients needed.
+
+
+## *What woul be good to have*
+If the notifications are to be sent at the same time in the morning and the evening.
+importing API's so that i dont need to look for all the recipes.
+
 ## *Language/ Built with*
 
 Python 3.9
