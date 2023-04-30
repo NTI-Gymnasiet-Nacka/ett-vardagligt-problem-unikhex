@@ -8,7 +8,7 @@ This is semi group project. Its function is to automise a problem that the membe
 ## *The problem*
 
 The primary purpose of your platform is to remind users to eat and provide them with easy-to-cook recipes.
-Our thought process was to create an app or a website that sends notification to a certain email adress or a number to first remind them to eat while at the same time sending easy to cokk food recipes for the type of meal they are going to eat.
+Our thought process was to create an app or a website that sends notification to a certain email adress or a number to first remind them to eat while at the same time sending easy to cook food recipes for the type of meal they are going to eat.
 
 ## *How am i going to fix it*
 
