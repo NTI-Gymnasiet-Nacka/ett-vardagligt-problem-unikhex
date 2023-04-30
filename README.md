@@ -43,6 +43,12 @@ Maybe some more (to be added later).
 
 At this point in time i havn't decided that if its going to be a website or an easy to build app.
 
+## *Updates*
+
+The prptype for the app has benn generated. I will need to fix all the addresses the notifaication is coming from and to where it is headed. At the same time clarify in what intervals this updates should be happening.
+
+In the future updates i will ask my colleagues for suitable API's for this project.
+
 ## *License*
 
 [MIT](https://choosealicense.com/licenses/mit/)
