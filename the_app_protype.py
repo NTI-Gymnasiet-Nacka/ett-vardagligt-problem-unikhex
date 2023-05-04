@@ -13,9 +13,9 @@ api_params = {
 }
 
 # Set up your email credentials
-sender_email = 'YOUR_EMAIL_ADDRESS'
-sender_password = 'YOUR_EMAIL_PASSWORD'
-recipient_email = 'YOUR_RECIPIENT_EMAIL_ADDRESS'
+sender_email = 'potatoc377@gmail.com'
+sender_password = 'shswixwxckmvrruv'
+recipient_email = 'awinozion85@gmail.com'
 
 # Define the email message
 subject = 'Recipe of the Hour'
@@ -34,9 +34,9 @@ def generate_recipe_and_send_email():
 
     # Create a message object
     message = MIMEMultipart()
-    message['From'] = sender_email
-    message['To'] = recipient_email
-    message['Subject'] = subject
+    message['potatoc377@gmail.com'] = sender_email
+    message['awinozion85@gmail.com'] = recipient_email
+    message['Here is is your daily recipe'] = subject
     message.attach(MIMEText(message_body, 'plain'))
 
     # Set up the SMTP server
