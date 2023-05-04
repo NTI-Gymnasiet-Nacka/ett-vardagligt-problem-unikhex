@@ -49,6 +49,10 @@ The prptype for the app has benn generated. I will need to fix all the addresses
 
 In the future updates i will ask my colleagues for suitable API's for this project.
 
+## *Important update*
+
+Due to me finding it hard to implement the api that i got to the prototype app that i had created from an idea based on a classproject that i had done. I will be changing my idea from an app to a website that has identical functions as the app. I wil try to make it more compicated by implenting node.js so as to have both backend and frontend. And will may be try to host in on a server somewhere. What i plan to do from now on will be written in the plans.txt file.
+
 ## *License*
 
 [MIT](https://choosealicense.com/licenses/mit/)
