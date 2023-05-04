@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 # Set up the Spoonacular API endpoint and parameters
 api_endpoint = 'https://api.spoonacular.com/recipes/random'
 api_params = {
-    'apiKey': 'YOUR_SPOONACULAR_API_KEY',
+    'apiKey': ' 32b42d1430674384b035f4551f40572f',
     'number': 1,
 }
 
@@ -66,6 +66,7 @@ schedule.every().hour.do(generate_recipe_and_send_email)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
 """In this code, you will need to replace YOUR_SPOONACULAR_API_KEY, 
 YOUR_EMAIL_ADDRESS, and YOUR_EMAIL_PASSWORD with your own API key and email credentials. 
 You will also need to replace YOUR_RECIPIENT_EMAIL_ADDRESS with the email address that you want to receive the recipe notifications.
