@@ -8,9 +8,10 @@ router.get('/users', (req, res) => {
     db.all('SELECT * FROM users', (err, rows) => {
         if (err) {
             console.error(err.message);
-            return res.status(500).send('Internal server error');
-        }
-        res.send(rows);
+            res.status(500).json({ error: 'Failed to retrieve users' });
+        } else {
+            res.send(rows);
+    }
     });
 });
 

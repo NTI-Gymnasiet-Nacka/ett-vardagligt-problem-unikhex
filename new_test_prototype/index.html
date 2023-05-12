@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notification Management</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #007bff;
+			color: white;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			margin: 0;
+		}
+		main {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 0 20px;
+		}
+		button {
+			background-color: #007bff;
+			color: white;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 20px;
+		}
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #007bff;
+			color: white;
+		}
+		.container {
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Notification Management</h1>
+	</header>
+	<main>
+		<h2>Users</h2>
+		<button onclick="getUsers()">Get Users</button>
+		<table id="user-table"></table>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+		const table = document.getElementById('user-table');
+
+		function getUsers() {
+			axios.get('/api/users')
+				.then(response => {
+					table.innerHTML = `
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+						</tr>
+					`;
+					response.data.forEach(user => {
+						table.innerHTML += `
+							<tr>
+								<td>${user.id}</td>
+								<td>${user.name}</td>
+								<td>${user.email}</td>
+							</tr>
+						`;
+					});
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		}
+	</script>
+	<div class="container" id="user-list">
+		<h2>Users</h2>
+		<ul>
+		</ul>
+	</div>
+	<script>
+		fetch('/api/users')
+			.then(response => response.json())
+			.then(users => {
+				const userList = document.querySelector('#user-list ul');
+				users.forEach(user => {
+					const li = document.createElement('li');
+					li.textContent = user.email;
+					userList.appendChild(li);
+				});
+			})
+			.catch(error => console.error(error));
+	</script>
+</body>
+</html>

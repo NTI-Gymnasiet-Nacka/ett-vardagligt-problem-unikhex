@@ -67,3 +67,10 @@ Zion Awino (unikhex )
 
 - [Email] (awinozion85@gmail.com)
 - [Project_link] (<https://github.com/NTI-Gymnasiet-Nacka/ett-vardagligt-problem-unikhex>)
+
+## *Acknowledgements*
+
+Credit to:
+
+- Shazhoud
+[Email](shahzod.ravshanov@elev.ga.ntig.se )
