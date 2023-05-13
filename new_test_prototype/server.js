@@ -85,7 +85,7 @@ cron.schedule('0 12 * * *', () => {
 });
 
 // supper at 18:30
-cron.schedule('00 23 * * *', () => {
+cron.schedule('30 18 * * *', () => {
   console.log(`Scheduled supper at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
   sendNotifications('Supper');
 });
