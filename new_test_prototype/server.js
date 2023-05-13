@@ -6,13 +6,16 @@ const nodemailer = require('nodemailer');
 const axios = require('axios');
 const path = require('path');
 const dotenv = require('dotenv');
+const moment = require('moment-timezone');
+const now = moment.tz('Europe/Stockholm');
+moment.tz.setDefault('Europe/Stockholm');
 
+console.log(now.format());
 
 dotenv.config();
 const API_KEY = process.env.API_KEY
 const PASSWORD = process.env.PASSWORD
 const EMAIL = process.env.EMAIL  
-
 
 const PORT = process.env.PORT || 3000;
 const app = express()
@@ -69,23 +72,27 @@ app.listen(PORT, () => {
 });
 
 // schedule cron jobs to send notifications
-// breakfast at 07:00
+// breakfast at 7:00
 cron.schedule('0 7 * * *', () => {
+  console.log(`Scheduled breakfast at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
   sendNotifications('Breakfast');
 });
 
 // lunch at 12:00
-cron.schedule('00 12 * * *', () => {
+cron.schedule('0 12 * * *', () => {
+  console.log(`Scheduled lunch at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
   sendNotifications('Lunch');
 });
 
 // supper at 18:30
-cron.schedule('30 18 * * *', () => {
+cron.schedule('00 23 * * *', () => {
+  console.log(`Scheduled supper at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
   sendNotifications('Supper');
 });
 
 // snacktime at 17:00
 cron.schedule('0 17 * * *', () => {
+  console.log(`Scheduled snacktime at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
   sendNotifications('Snacktime');
 });
 
@@ -117,7 +124,7 @@ function sendNotifications(meal) {
           subject: `Your Daily ${meal}`,
           text: `From the best here to remind you to eat something for ${meal}`
         };
-
+         
         // send mail with defined transport object
         transporter.sendMail(message, (err, info) => {
           if (err) {
@@ -135,14 +142,25 @@ function sendNotifications(meal) {
 app.get('/api/recipe/:ingredients', async (req, res) => {
   const ingredients = req.params.ingredients.split(',');
   try {
-    const response = await axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
+    const response = await 
+    axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
       params: {
         ingredients: ingredients.join(','),
         number: 5,
         apiKey: API_KEY
       }
     });
-    res.json(response.data);
+    const recipeId = response.data[0].id;
+    const recipeResponse = await axios.get(`https://api.spoonacular.com/recipes/${recipeId}/information`, {
+      params: {
+        apiKey: API_KEY
+      }
+    });
+    const recipe  = {
+      title: recipeResponse.data.title,
+      instructions: recipeResponse.data.instructions
+    };
+    res.json (recipe)
   } catch (error) {
     console.error(error);
     res.status(500).send('Error retrieving recipe');
