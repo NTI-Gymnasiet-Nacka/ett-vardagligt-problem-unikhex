@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const DB_PATH = 'C:/Users/zion.awino/Dropbox/Min PC (5CD022GKRL)/Desktop/database/mydatabase.db';
+const DB_PATH = 'mydatabase.db';
 
 // create a new database connection
 const db = new sqlite3.Database(DB_PATH, (err) => {
