@@ -105,16 +105,15 @@ function sendNotifications() {
               // subject: `Your Daily ${meal}`,
               text: `From the best here to remind you to eat something for ${JSON.stringify(meal)}`
             };
-            console.log(message);
 
             // send mail with defined transport object
-            transporter.sendMail(message, (err, info) => {
-              if (err) {
-                console.log(`Error sending email to ${user.email}: ${err}`);
-              } else {
-                console.log(`Email sent to ${user.email}: ${info.response}`);
-              }
-            });
+            // transporter.sendMail(message, (err, info) => {
+              // if (err) {
+                // console.log(`Error sending email to ${user.email}: ${err}`);
+              // } else {
+                // console.log(`Email sent to ${user.email}: ${info.response}`);
+              // }
+            // });
           } catch (error) {
             console.error(error);
             reject(error);
@@ -136,7 +135,12 @@ function sleep(ms) {
 async function getRecipes(){
   try {
     let recipes = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=${1}`)
+    console.log('first printttt==============================')
+    console.log(recipes.data)
+    console.log(`\n\n\n\n\n`)
     recipes = Object.values(recipes.data)
+    console.log('second  printttt==============================')
+    console.log(recipes)
     console.log('this')
     sleep(3000)
     return recipes

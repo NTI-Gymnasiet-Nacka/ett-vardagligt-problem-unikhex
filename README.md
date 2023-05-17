@@ -72,5 +72,5 @@ Zion Awino (unikhex )
 
 Credit to:
 
-- Shazhoud
+- Shazhoud Ravshanov
 [Email](shahzod.ravshanov@elev.ga.ntig.se )
