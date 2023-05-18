@@ -57,6 +57,14 @@ Due to me finding it hard to implement the api that i got to the prototype app t
 
 I now have a protype for backened abut no frontend as of now. I have a mini database created using sqlite3. But it is not the files here called mydatabse or mydb.db. I dont know yet how i am supposed to delete them.
 
+## *version 2*
+
+The frontend is now created. The frontend is just going to be a html webpage that shows the users in a webpage.
+
+## *version 3*
+
+A function was created to fetch ingredients and recipes. Then it sends that to the users via an email.
+
 ## *License*
 
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -65,7 +73,7 @@ I now have a protype for backened abut no frontend as of now. I have a mini data
 
 Zion Awino (unikhex )
 
-- [Email] (awinozion85@gmail.com)
+- [Email] (<awinozion85@gmail.com>)
 - [Project_link] (<https://github.com/NTI-Gymnasiet-Nacka/ett-vardagligt-problem-unikhex>)
 
 ## *Acknowledgements*

@@ -85,7 +85,7 @@ function sendNotifications() {
             // send notification to user
             const meal = await  getRecipes();
             await sleep(2000);
-            // console.log(`Sending notification to ${user.email} for ${JSON.stringify(meal)}`);
+            console.log(`Sending notification to ${user.email} for ${JSON.stringify(meal)}`);
 
             // create transporter object with SMTP settings
             const transporter = nodemailer.createTransport({
@@ -103,17 +103,17 @@ function sendNotifications() {
               from: process.env.EMAIL,
               to: user.email,
               // subject: `Your Daily ${meal}`,
-              text: `From the best here to remind you to eat something for ${JSON.stringify(meal)}`
+              text: `From the best here to remind you to eat something for :\n\nIngredients:\n${meal.ingredients.join('\n')}\n\nInstructions:\n${meal.instructions.join('\n')}`
             };
 
             // send mail with defined transport object
-            // transporter.sendMail(message, (err, info) => {
-              // if (err) {
-                // console.log(`Error sending email to ${user.email}: ${err}`);
-              // } else {
-                // console.log(`Email sent to ${user.email}: ${info.response}`);
-              // }
-            // });
+             transporter.sendMail(message, (err, info) => {
+               if (err) {
+                console.log(`Error sending email to ${user.email}: ${err}`);
+               } else {
+                 console.log(`Email sent to ${user.email}: ${info.response}`);
+               }
+             });
           } catch (error) {
             console.error(error);
             reject(error);
@@ -135,15 +135,20 @@ function sleep(ms) {
 async function getRecipes(){
   try {
     let recipes = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=${1}`)
-    console.log('first printttt==============================')
-    console.log(recipes.data)
+    const recipe = recipes.data.recipes[0];
+
+    const ingredients = recipe.extendedIngredients.map((ingredient) => ingredient.original);
+    const instructions = recipe.instructions.split('\n').filter((instruction) => instruction !== '');
     console.log(`\n\n\n\n\n`)
-    recipes = Object.values(recipes.data)
-    console.log('second  printttt==============================')
-    console.log(recipes)
-    console.log('this')
+    
+    
+    
+    
     sleep(3000)
-    return recipes
+    return {
+      ingredients,
+      instructions,
+    };
     // recipes[0].forEach(recipe => {
     //   console.log(recipe)§
     // } )
