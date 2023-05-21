@@ -53,11 +53,11 @@ All the above use Node js and can be installed by runing node install command in
 
 ## *How it functions*
 
-At this point in time i havn't decided that if its going to be a website or an easy to build app.
+We have html website that only has the current users in a dtabase. The users are recorded by their names and the databse has their emails in there too. We have a server.js file that has all functions such as fetching recipes, scheduling at what time the recipes are to be sent. The sending is done with the help of two other functions, one that sends the email from the sender email to the users in the databse, and the functions checks which time it is in the timezone i am in currently. The other files there are there to make sure that what i have stated above happens without any problems.
 
 ## *Updates*
 
-The prptype for the app has benn generated. I will need to fix all the addresses the notifaication is coming from and to where it is headed. At the same time clarify in what intervals this updates should be happening.
+The prototype for the app has benn generated. I will need to fix all the addresses the notifaication is coming from and to where it is headed. At the same time clarify in what intervals this updates should be happening.
 
 In the future updates i will ask my colleagues for suitable API's for this project.
 
