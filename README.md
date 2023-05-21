@@ -49,7 +49,7 @@ sqlite3
 
 nodemailer
 
-All the above use Node js and can be installed by runing node install command in the command prompt.
+All the above use Node js and can be installed by running node install command in the command prompt.
 
 ## *How it functions*
 
@@ -119,7 +119,7 @@ currenlty there is an example plus my own personal one.
 
 Both of these were easily fixed by watching tutorial on Youtube.
 
-* The sent email here has too much unneeded information. This was fixed by applying a filter to the function that request recipes from the Api. This fixed that problem.
+* The sent email here has too much unneeded information. This was fixed by applying a filter to the function that requests recipes from the Api. This fixed that problem.
 
 ## *What i could do better in the future*
 
