@@ -12,13 +12,11 @@ Our thought process was to create an app or a website that sends notification to
 
 ## *How am i going to fix it*
 
-I am personlising it to make it so that it only sends notifications for breakfast and supper. I also wanted mine to only be able to send recipes for only ingredients that i currernly have.
+I am personalising my project to make it so that it only sends notifications for breakfast and supper. I also wanted mine to only be able to send both recipes and ingredients.
 
 ## *What it has to have*
 
-I'll try to integrate a notification system: Develop a notification system that sends reminders to the user's email or phone number. I could use third-party APIs like Twilio to send SMS notifications or email notifications.
-
-Choose or input ingridients needed.
+I'll try to integrate a notification system: Develop a notification system that sends reminders to the user's email or phone number. I could use third-party APIs like Twilio to send SMS notifications or email notifications.(I chose spooncular Api)
 
 ## *What woul be good to have*
 
@@ -37,7 +35,21 @@ Python 3.9
 
 Markdown
 
-Maybe some more (to be added later).
+axios
+
+dotenv
+
+express
+
+moment timezone
+
+node-cron
+
+sqlite3
+
+nodemailer
+
+All the above use Node js and can be installed by runing node install command in the command prompt.
 
 ## *How it functions*
 
@@ -51,19 +63,67 @@ In the future updates i will ask my colleagues for suitable API's for this proje
 
 ## *Important update*
 
-Due to me finding it hard to implement the api that i got to the prototype app that i had created from an idea based on a classproject that i had done. I will be changing my idea from an app to a website that has identical functions as the app. I wil try to make it more compicated by implenting node.js so as to have both backend and frontend. And will may be try to host in on a server somewhere. What i plan to do from now on will be written in the plans.txt file.
+Due to me finding it hard to implement the api that i got to the prototype app that i had created from an idea based on a classproject that i had done. I will be changing my idea from an app to a website that has identical functions as the app. I wil try to make it more compicated by implenting node.js so as to have both backend and frontend. And will may be try to host in on a server somewhere. What i plan to do from now on  and the steps taken in this project will be written in the plans.txt file.
 
 ## *version 1*
 
-I now have a protype for backened abut no frontend as of now. I have a mini database created using sqlite3. But it is not the files here called mydatabse or mydb.db. I dont know yet how i am supposed to delete them.
+I now have a prototype for backened but no frontend as of now. I have a mini database created using sqlite3.
+
+The location has of the database has been changed now evrything is in the same place.
 
 ## *version 2*
 
 The frontend is now created. The frontend is just going to be a html webpage that shows the users in a webpage.
 
+But all the important funstions are in server.js. I thought it would be easier to have it like this. Have a website to specifically check who are the users i have. That is what will be shown in the index.html file.
+
+The function for sending the email was made with in an earlier
+prorotype which i decided to abandon and continue with this one. Thus
+what was already there has just been taken and implemented here.
+
 ## *version 3*
 
-A function was created to fetch ingredients and recipes. Then it sends that to the users via an email.
+A lot of functions and routes were created so that the frontend and backend would function seemlessly. Examlpes being,, a function was created to fetch ingredients and recipes. Then it sends that to the users via an email.
+
+## *version 4*
+
+The code is now complete. I can fetch recipes from an api send it to my users in the database immediatly. But there is also the part than is scheduled an dwill send notifications with the recipes and ingredients at certain times during the day.
+
+## *How to add users to the database*
+
+This is already in db.js, but i'll say it anyway.
+
+* first have sqlite3 installed.
+
+* use command prompt go to the location of your database.
+
+* Then type "INSERT INTO users (name, email)". This is specific to my
+database. It only has the nmae of the user and their address.
+currenlty there is an example plus my own personal one.
+
+* The you are done.
+
+## *How to run the code*
+
+* Have node.js installed.
+
+* Go to the location of the files by running cd command in command prompt.
+
+* The node followed by the name of the file
+
+## *Problems i had*
+
+* figuring out how to use databases with sqlite3
+
+* How to install sqlite3
+
+Both of these were easily fixed by watching tutorial on Youtube.
+
+* The sent email here has too much unneeded information. This was fixed by applying a filter to the function that request recipes from the Api. This fixed that problem.
+
+## *What i could do better in the future*
+
+I could try usinng the frontend of the project a little bit more. May be implementing user authorisation and allowing the users to save their favorite recipes somewhere. But this means the index.html has to be made into a more functioning website that has better UI.
 
 ## *License*
 
@@ -73,12 +133,12 @@ A function was created to fetch ingredients and recipes. Then it sends that to t
 
 Zion Awino (unikhex )
 
-- [Email] (<awinozion85@gmail.com>)
-- [Project_link] (<https://github.com/NTI-Gymnasiet-Nacka/ett-vardagligt-problem-unikhex>)
+* [Email] (<awinozion85@gmail.com>)
+* [Project_link] (<https://github.com/NTI-Gymnasiet-Nacka/ett-vardagligt-problem-unikhex>)
 
 ## *Acknowledgements*
 
 Credit to:
 
-- Shazhoud Ravshanov
+* Shazhoud Ravshanov
 [Email](shahzod.ravshanov@elev.ga.ntig.se )

@@ -71,6 +71,25 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+//schedule cron jobs to send notifications
+//breakfast at 7:00
+cron.schedule('0 7 * * *', () => {
+  console.log(`Scheduled breakfast at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
+  sendNotifications('Breakfast');
+});// lunch at 12:00
+cron.schedule('28` 13 * * *', () => {
+  console.log(`Scheduled lunch at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
+  sendNotifications();
+});// supper at 18:30
+cron.schedule('30 18 * * *', () => {
+  console.log(`Scheduled supper at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
+  sendNotifications('Supper');
+});// snacktime at 17:00
+cron.schedule('0 17 * * *', () => {
+  console.log(`Scheduled snacktime at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
+  sendNotifications('Snacktime');
+});
+
 
 // function to send notifications to users
 function sendNotifications() {
@@ -136,23 +155,17 @@ async function getRecipes(){
   try {
     let recipes = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=${1}`)
     const recipe = recipes.data.recipes[0];
-
+    //filter in order to only get ingredients and isntructions
     const ingredients = recipe.extendedIngredients.map((ingredient) => ingredient.original);
     const instructions = recipe.instructions.split('\n').filter((instruction) => instruction !== '');
     console.log(`\n\n\n\n\n`)
-    
-    
-    
     
     sleep(3000)
     return {
       ingredients,
       instructions,
-    };
-    // recipes[0].forEach(recipe => {
-    //   console.log(recipe)§
-    // } )
-
+    }
+    
   } catch (error) {
     console.error(error);
   }
@@ -162,30 +175,5 @@ async function getRecipes(){
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
-// schedule cron jobs to send notifications
-// breakfast at 7:00
-// cron.schedule('0 7 * * *', () => {
-//   console.log(`Scheduled breakfast at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
-//   sendNotifications('Breakfast');
-// });
-
-// // lunch at 12:00
-// cron.schedule('28` 13 * * *', () => {
-//   console.log(`Scheduled lunch at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
-//   sendNotifications();
-// });
-
-// // supper at 18:30
-// cron.schedule('30 18 * * *', () => {
-//   console.log(`Scheduled supper at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
-//   sendNotifications('Supper');
-// });
-
-// // snacktime at 17:00
-// cron.schedule('0 17 * * *', () => {
-//   console.log(`Scheduled snacktime at ${moment().tz('Europe/Stockholm').format('YYYY-MM-DD HH:mm:ss')}`);
-//   sendNotifications('Snacktime');
-// });
-
-
+//Is here to send notification immediately
 sendNotifications()
